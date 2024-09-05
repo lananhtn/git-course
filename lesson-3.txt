@@ -1,0 +1,123 @@
+1. Giải thích các câu lệnh: 
++ git commit --amend: Mở trình soạn thảo để chỉnh sửa commit massage
++ git commit --amend -m”<message>”: Thay đổi commit massage ngay lập tức
++ git restore --staged <file>: Chuyển file từ vùng Staging --> Working
++ git reset HEAD~1: Chuyển 1 commit mới nhất từ vùng Repository --> Working
+
+2. Hãy tưởng tượng có 1 folder lesson-3 mới được tạo. Hãy liệt kê các file theo từng vùng, liệt kê các commit và message tương ứng sau khi thao tác một loạt các lệnh sau
+a. Tạo 3 file: file1, file2, file3
+    - Thư mục lesson-3:
+        file1
+        file2
+        file3
+    - Working Directory, Staging Area, Repository: Trống 
+
+b. Chạy lệnh: git init
+"Khởi tạo một repository Git mới trong thư mục lesson-3"
+    - Working Directory:
+        file1
+        file2
+        file3
+    - Staging Area, Repository: Trống 
+
+c. Chạy lệnh: git commit -m”init project”
+"Thêm commit với massage "init project" --> Lệnh này sẽ không thực hiện gì vì chưa có tệp nào được thêm vào vùng Staging
+    - Working Directory:
+        file1
+        file2
+        file3
+    - Staging Area, Repository: Trống
+
+d. Chạy lệnh: git add file1
+" Add file1 vào vùng Staging"
+    - Working Directory:
+        file2
+        file3
+    - Staging Area:
+        file1 
+    - Repository: Trống
+
+e. Chạy lệnh: git commit -m”add file”
+" Thêm commit với massage 'add file' --> file1 được commit và chỉ file1 ở vùng Staging
+    - Working Directory:
+        file2
+        file3
+    - Staging Area: Trống 
+    - Repository: 
+        file1
+
+f. Chạy lệnh: git add .
+" Thêm tất cả các file từ Working vào vùng Staging"
+    - Working Directory: Trống
+    - Staging Area: 
+        file2
+        file3 
+    - Repository: 
+        file1
+
+g. Chạy lệnh: git restore --staged file2
+"Back file2 từ Staging về Working"
+    - Working Directory: 
+        file2
+    - Staging Area: 
+        file3 
+    - Repository: 
+        file1
+
+h. Chạy lệnh: git commit -m”add all files”
+"commit các file ở staging" --> chỉ có file3 ở staging được commit 
+    - Working Directory: 
+        file2
+    - Staging Area: Trống
+    - Repository: 
+        file1
+        file3
+
+i. Chạy lệnh: git reset HEAD~1
+"roll back commit mới nhất (file3) về vùng working"
+    - Working Directory: 
+        file2
+        file3
+    - Staging Area: Trống
+    - Repository: 
+        file1
+
+3. Hãy tưởng tượng có 1 folder lesson-3-git mới được tạo ra. Hãy liệt kê các file theo
+từng vùng sau khi thao tác các lệnh sau:
+a. Chạy lệnh git init
+"Khởi tạo một repository Git mới trong thư mục lesson-3-git"
+
+b. Tạo file file1.txt, file2.txt, oops/file3.txt.
+"Tất cả các file để ở vùng Working vì trước đó đã khởi tạo repository"
+    - Working Directory:
+        file1.txt
+        file2.txt
+        oops/file3.txt.
+    - Staging Area, Repository: Trống 
+
+c. Thêm file .gitignore, thêm vào 2 dòng:
+- i. file1.txt
+"Bỏ qua file 'file1.txt' không cần git theo dõi"
+    - Working Directory:
+        file2.txt
+        oops/file3.txt.
+    - Staging Area, Repository: Trống 
+ii. oops/
+"Bỏ qua thư mục oops có chứa 'file3.txt' không cần git theo dõi"
+    - Working Directory:
+        file2.txt
+    - Staging Area, Repository: Trống 
+
+d. Chạy lệnh: git add .
+"Add tất cả file vào vùng Staging"
+    - Working Directory: Trống
+    - Staging Area:
+        file2.txt
+    - Repository: Trống 
+
+e. Chạy lệnh: git commit -m"init project"
+"Thêm Commit"
+    - Working Directory: Trống
+    - Staging Area: Trống
+    - Repository: 
+        file2.txt
