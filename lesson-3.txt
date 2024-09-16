@@ -99,12 +99,14 @@ c. Thêm file .gitignore, thêm vào 2 dòng:
 - i. file1.txt
 "Bỏ qua file 'file1.txt' không cần git theo dõi"
     - Working Directory:
+        .gitignore
         file2.txt
         oops/file3.txt.
     - Staging Area, Repository: Trống 
 ii. oops/
 "Bỏ qua thư mục oops có chứa 'file3.txt' không cần git theo dõi"
     - Working Directory:
+        .gitignore
         file2.txt
     - Staging Area, Repository: Trống 
 
@@ -112,6 +114,7 @@ d. Chạy lệnh: git add .
 "Add tất cả file vào vùng Staging"
     - Working Directory: Trống
     - Staging Area:
+        .gitignore
         file2.txt
     - Repository: Trống 
 
@@ -121,3 +124,4 @@ e. Chạy lệnh: git commit -m"init project"
     - Staging Area: Trống
     - Repository: 
         file2.txt
+        .gitignore
